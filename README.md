@@ -4,4 +4,4 @@ A clean and nice web portfolio for designer or developer. That includes almost e
 
 Don't forget to give star on github.
 
-image.png
+![preview](https://github.com/deepak14ri/portfolio/assets/49471265/edaac3e5-08fd-49c8-87c0-259dc0755853)
