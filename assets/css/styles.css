@@ -135,7 +135,7 @@ img {
     height: 100%;
     padding: 2rem;
     background-color: var(--second-color);
-    transition: .5s;
+    transition: .1s;
   }
 }
 
