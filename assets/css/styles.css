@@ -42,6 +42,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -49,6 +50,8 @@ body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   color: var(--second-color);
+  overflow-x: hidden;
+  line-height: 1.6;
 }
 
 h1, h2, p {
@@ -105,6 +108,7 @@ img {
   display: grid;
   margin-left: var(--mb-2);
   margin-right: var(--mb-2);
+  width: 100%;
 }
 
 .l-header {
@@ -193,10 +197,15 @@ img {
   position: relative;
   row-gap: 5rem;
   padding: 4rem 0 5rem;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
 }
 
 .home__data {
   align-self: center;
+  z-index: 1;
 }
 
 .home__title {
@@ -211,6 +220,7 @@ img {
 .home__social {
   display: flex;
   flex-direction: column;
+  z-index: 1;
 }
 
 .home__social-icon {
@@ -229,6 +239,8 @@ img {
   right: 0;
   bottom: 0;
   width: 260px;
+  max-width: 100%;
+  z-index: 0;
 }
 
 .home__blob {
@@ -262,6 +274,23 @@ img {
 
 .about__subtitle {
   margin-bottom: var(--mb-2);
+  line-height: 1.4;
+}
+
+.about__text {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.about__highlights {
+  margin-top: 1rem;
+}
+
+.about__highlights .about__text {
+  margin-bottom: 0.8rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--first-color);
 }
 
 .about__img {
@@ -337,6 +366,10 @@ img {
 
 .skills__git_github {
   width: 75%;
+}
+
+.skills__ai_telephony {
+  width: 80%;
 }
 
 .skills__img {
@@ -420,6 +453,15 @@ img {
   .home__img {
     width: 200px;
   }
+  .home__title {
+    font-size: 1.8rem !important;
+  }
+  .about__text {
+    font-size: 0.85rem;
+  }
+  .about__highlights .about__text {
+    padding-left: 0.5rem;
+  }
 }
 
 @media screen and (min-width: 576px) {
@@ -442,8 +484,12 @@ img {
   }
   .about__container {
     grid-template-columns: repeat(2, 1fr);
-    align-items: center;
+    align-items: flex-start;
     text-align: initial;
+    gap: 2rem;
+  }
+  .about__text {
+    text-align: left;
   }
   .skills__container {
     grid-template-columns: .7fr;
@@ -505,9 +551,13 @@ img {
   }
   .about__container {
     padding-top: 2rem;
+    gap: 3rem;
   }
   .about__img img {
     width: 300px;
+  }
+  .about__highlights .about__text {
+    padding-left: 1.5rem;
   }
   .skills__container {
     grid-template-columns: repeat(2, 1fr);
@@ -532,6 +582,84 @@ img {
   .home__img {
     width: 450px;
   }
+  .about__container {
+    gap: 4rem;
+  }
+}
+
+/* Additional responsive improvements */
+@media screen and (max-width: 480px) {
+  .bd-grid {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .home {
+    padding: 2rem 0 3rem;
+  }
+  .home__title {
+    font-size: 2rem !important;
+    margin-bottom: 2rem;
+  }
+  .home__img {
+    position: relative;
+    width: 200px;
+    margin: 2rem auto 0;
+  }
+  .about__subtitle {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+  .about__text {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  .skills__data {
+    padding: 0.3rem 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .skills__names {
+    flex-wrap: wrap;
+  }
+  .skills__name {
+    font-size: 0.8rem;
+  }
+  .work__container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .section {
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .home {
+    padding: 3rem 0 4rem;
+  }
+  .home__title {
+    font-size: 2.2rem !important;
+  }
+  .home__img {
+    width: 280px;
+  }
+  .about__container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+  .about__text {
+    text-align: justify;
+  }
+  .skills__container {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .work__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
 }
 
 .cart-head {
@@ -554,4 +682,45 @@ img {
 .subcart-text {
   font-size: 15px;
   font-weight: 100;
+}
+
+/* Enhanced tablet responsiveness */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .home {
+    padding: 3rem 0 4rem;
+  }
+  .home__img {
+    width: 280px;
+  }
+  .skills__container {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .work__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Improved mobile navigation */
+@media screen and (max-width: 767px) {
+  .nav__menu {
+    backdrop-filter: blur(10px);
+    background-color: rgba(var(--second-color), 0.95);
+  }
+  .nav__link {
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+  }
+}
+
+/* Smooth transitions for better UX */
+.home__title, .about__text, .skills__data, .work__img {
+  transition: all 0.3s ease;
+}
+
+.work__img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 35px rgba(14, 36, 49, 0.2);
 }
